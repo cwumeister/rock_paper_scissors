@@ -8,32 +8,29 @@ def main():
     print("User hand: " + user)
     print("Computer hand: " + comp)
 
-    if user == "ROCK":
+    if user == comp:
+        print("We both drew the same thing, it's a tie!")
+    elif user == "ROCK":
         if comp == "PAPER":
             print("Paper beats Rock, I win!")
-        elif comp == "SCISSORS":
-            print("Rock beats Scissors, you win!")
         else:
-            print("We both drew the same thing, it's a tie!")
+            print("Rock beats Scissors, you win!")
     elif user == "PAPER":
         if comp == "ROCK":
             print("Paper beats Rock, you win!")
-        elif comp == "SCISSORS":
-            print("Scissors beats Paper, I win!")
         else:
-            print("We both drew the same thing, it's a tie!")
+            print("Scissors beats Paper, I win!")
     else:
         if comp == "PAPER":
             print("Scissors beats Paper, you win!")
         elif comp == "ROCK":
             print("Rock beats Scissors, I win!")
-        else:
-            print("We both drew the same thing, it's a tie!")
-
-
+            
+#prompts user for input
 def show_hand():
     possible = {"ROCK", "PAPER", "SCISSORS"}
 
+    #if user does not choose one of the three, repeats
     while True:
         hand = str(input("Rock, Paper, or Scissors?: "))
         hand = hand.upper().strip()
@@ -43,6 +40,7 @@ def show_hand():
             print("That is not one of the plays! Try again!")
     return hand
 
+#assigns computer a random value
 def comp_hand():
     words = ("ROCK", "PAPER", "SCISSORS")
     word = random.choice(words)
